@@ -1,0 +1,32 @@
+---
+title: "Show/Hide Addons"
+description: ""
+icon: "puzzle"
+---
+<Snippet file="enterprise-feature.mdx" />
+<Snippet file="replace-oauth2-apps.mdx" />
+
+If you would like to only show specific addons to your embedding users, we recommend you do the following:
+
+<Steps>
+    <Step title="Tag Addons">
+        Tag the addons you would like to show to your user by going to **Platform Admin -> Setup -> Addons**, selecting the addons you would like to tag and hit **Apply Tags**
+
+        ![Bulk Tag](../resources/screenshots/tag-addons.png)
+    </Step>
+    <Step title="Add Tags to Provision Token">
+       You need to specify the tags of addons in the token, check how to generate token in [provisioning users](./provision-users).
+
+        You should specify the `addons` claim like this:
+        ```json
+        {
+            /// Other claims
+            "addonsFilterType": "ALLOWED",
+            "addonsTags": [ "free" ]
+        }
+        ```
+
+        Each time the token is used by the embedding SDK, it will sync all addons with these tags to the token's project. 
+        The project will only contain the addons that contain these tags.
+    </Step>
+</Steps>

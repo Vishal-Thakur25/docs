@@ -1,0 +1,51 @@
+---
+title: 'Create Addon Definition'
+icon: 'circle-3'
+description: ''
+---
+
+
+This tutorial will guide you through the process of creating a Gelato addon with an action that fetches random icecream flavor and trigger that fetches new icecream flavor created. It assumes that you are familiar with the following:
+
+- [NRAI Local development](../development-setup/local) Or [GitHub Codespaces](../development-setup/codespaces).
+- TypeScript syntax.
+
+## Addon Definition
+
+To get started, let's generate a new addon for Gelato
+
+```bash
+npm run cli addons create
+```
+
+You will be asked three questions to define your new addon:
+
+1. `Addon Name`: Specify a name for your addon. This name uniquely identifies your addon within the NRAI ecosystem.
+2. `Package Name`: Optionally, you can enter a name for the npm package associated with your addon. If left blank, the default name will be used.
+3. `Addon Type`: Choose the addon type based on your intention. It can be either "custom" if it's a tailored solution for your needs, or "community" if it's designed to be shared and used by the broader community.
+
+**Example:**
+
+```bash
+npm run cli addons create
+
+? Enter the addon name: gelato
+? Enter the package name: @NRAI/addon-gelato
+? Select the addon type: community
+```
+
+The addon will be generated at `packages/addons/community/gelato/`,
+the `src/index.ts` file should contain the following code
+
+```ts
+import { AddonAuth, createAddon } from '@NRAI/addons-framework';
+
+export const gelato = createAddon({
+  displayName: 'Gelato',
+  logoUrl: 'https://cdn.NRAI.com/addons/gelato.png',
+  auth: AddonAuth.None(),
+  authors: [],
+  actions: [],
+  triggers: [],
+});
+```

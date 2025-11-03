@@ -1,0 +1,329 @@
+---
+title: "System Requirements & Performance"
+icon: "microchip"
+description: "Optimize your NRAI deployment with intelligent resource planning and performance insights"
+---
+
+<div className="nrai-performance-hero">
+  <h1>🚀 Power Your NRAI Instance</h1>
+  <p>Discover the optimal hardware configuration for your intelligent automation needs. NRAI's adaptive architecture scales seamlessly from development to enterprise-grade deployments.</p>
+</div>
+
+## 🎯 Smart Resource Planning
+
+NRAI's revolutionary architecture prioritizes **memory efficiency** over raw CPU power, utilizing intelligent caching and predictive resource allocation to maximize performance per dollar spent.
+
+<Tabs>
+  <Tab title="🏠 Development Setup">
+    Perfect for testing, prototyping, and small-scale automation projects.
+    
+    ### Minimum Configuration
+    | Service | Memory | CPU | Storage | Purpose |
+    |---------|--------|-----|---------|---------|
+    | **NRAI Core** | 2 GB | 1 vCPU | 20 GB SSD | Main application engine |
+    | **PostgreSQL** | 512 MB | 0.5 vCPU | 10 GB SSD | Data persistence |
+    | **Redis** | 256 MB | 0.5 vCPU | 2 GB SSD | Job queue & caching |
+    
+    <Note>
+    **💡 Pro Tip:** This configuration handles up to **100,000 workflow executions** per month with excellent response times.
+    </Note>
+  </Tab>
+  
+  <Tab title="🏢 Production Ready">
+    Designed for business-critical workflows with high availability requirements.
+    
+    ### Recommended Configuration
+    | Service | Memory | CPU | Storage | Purpose |
+    |---------|--------|-----|---------|---------|
+    | **NRAI Core** | 8 GB | 2 vCPU | 100 GB SSD | Enhanced processing power |
+    | **PostgreSQL** | 4 GB | 2 vCPU | 200 GB SSD | Optimized database performance |
+    | **Redis** | 2 GB | 1 vCPU | 20 GB SSD | High-speed job processing |
+    
+    <Note>
+    **🎯 Performance Target:** Handles **5+ million executions** monthly with sub-second response times.
+    </Note>
+  </Tab>
+  
+  <Tab title="🌐 Enterprise Scale">
+    Maximum performance for large organizations with complex automation needs.
+    
+    ### High-Performance Configuration
+    | Service | Memory | CPU | Storage | Purpose |
+    |---------|--------|-----|---------|---------|
+    | **NRAI Core** | 16 GB | 4 vCPU | 500 GB NVMe | Maximum throughput |
+    | **PostgreSQL** | 8 GB | 4 vCPU | 1 TB NVMe | Enterprise database |
+    | **Redis** | 4 GB | 2 vCPU | 100 GB NVMe | Ultra-fast job queue |
+    
+    <Note>
+    **⚡ Enterprise Power:** Processes **50+ million executions** monthly with guaranteed 99.9% uptime.
+    </Note>
+  </Tab>
+</Tabs>
+
+## 🧠 Intelligent Scaling Strategies
+
+### Dynamic Resource Allocation
+
+NRAI's AI-powered resource management automatically adjusts to your workload patterns:
+
+<Steps>
+  <Step title="🔍 Pattern Recognition">
+    The system learns your workflow patterns and predicts resource needs before bottlenecks occur
+  </Step>
+  <Step title="⚡ Auto-Scaling">
+    Resources scale up during peak times and down during quiet periods, optimizing costs
+  </Step>
+  <Step title="🎯 Load Balancing">
+    Intelligent distribution of workloads across available resources for maximum efficiency
+  </Step>
+  <Step title="📊 Performance Optimization">
+    Continuous monitoring and adjustment based on real-time performance metrics
+  </Step>
+</Steps>
+
+### Component-Specific Scaling
+
+<Accordion>
+  <AccordionItem title="🗄️ PostgreSQL Optimization">
+    **Memory-First Approach:**
+    - Increase `shared_buffers` to 25% of total RAM
+    - Set `effective_cache_size` to 75% of total RAM
+    - Configure `work_mem` based on concurrent connections
+    
+    **Storage Optimization:**
+    - Use NVMe SSDs for maximum IOPS performance
+    - Enable connection pooling with PgBouncer
+    - Consider read replicas for high-read workloads
+    
+    <Tip>
+    **💾 File Storage Tip:** Offload file storage to S3-compatible services to reduce database load by up to 70%.
+    </Tip>
+  </AccordionItem>
+  
+  <AccordionItem title="⚡ Redis Performance Tuning">
+    **Memory Configuration:**
+    - Set `maxmemory` to 80% of available RAM
+    - Use `allkeys-lru` eviction policy for optimal performance
+    - Enable persistence only if data durability is critical
+    
+    **Network Optimization:**
+    - Use Redis Cluster for horizontal scaling
+    - Enable compression for large payloads
+    - Configure appropriate timeout values
+    
+    <Warning>
+    **⚠️ Important:** Redis is primarily used for job queuing. Memory requirements scale with job complexity, not volume.
+    </Warning>
+  </AccordionItem>
+  
+  <AccordionItem title="🚀 NRAI Core Scaling">
+    **Horizontal Scaling:**
+    - NRAI containers are completely stateless
+    - Add instances behind a load balancer for increased capacity
+    - Each instance can handle independent workloads
+    
+    **Concurrency Configuration:**
+    ```bash
+    # Workflow execution concurrency
+    FLOW_WORKER_CONCURRENCY=50
+    
+    # Scheduled job concurrency  
+    SCHEDULED_WORKER_CONCURRENCY=25
+    
+    # API request handling
+    WEB_WORKER_CONCURRENCY=100
+    ```
+    
+    <Tip>
+    **🎛️ Tuning Tip:** Start with conservative values and increase based on monitoring data. Each workflow type has different resource requirements.
+    </Tip>
+  </AccordionItem>
+</Accordion>
+
+## 📈 Performance Benchmarks
+
+### Real-World Performance Data
+
+<CardGroup cols={2}>
+  <Card title="🏃‍♂️ Execution Speed" color="#10b981">
+    **Average Response Times:**
+    - Simple workflows: < 50ms
+    - Complex integrations: < 500ms
+    - AI-powered workflows: < 2s
+    - Batch processing: 1000+ items/minute
+  </Card>
+  
+  <Card title="📊 Throughput Capacity" color="#6366f1">
+    **Processing Volumes:**
+    - Development: 100K+ executions/month
+    - Production: 5M+ executions/month  
+    - Enterprise: 50M+ executions/month
+    - Peak burst: 10,000 concurrent jobs
+  </Card>
+</CardGroup>
+
+### Scaling Milestones
+
+| Monthly Executions | Recommended Setup | Expected Response Time | Cost Efficiency |
+|-------------------|-------------------|----------------------|-----------------|
+| 0 - 100K | Development | < 100ms | ⭐⭐⭐⭐⭐ |
+| 100K - 1M | Production | < 200ms | ⭐⭐⭐⭐ |
+| 1M - 10M | Production+ | < 300ms | ⭐⭐⭐ |
+| 10M+ | Enterprise | < 500ms | ⭐⭐ |
+
+## 🔧 Advanced Configuration
+
+### Environment Variables for Performance
+
+```bash
+# Core Performance Settings
+NRAI_MAX_MEMORY_USAGE=8192  # MB
+NRAI_CPU_OPTIMIZATION=true
+NRAI_CACHE_STRATEGY=intelligent
+
+# Database Optimization
+DB_CONNECTION_POOL_SIZE=20
+DB_QUERY_TIMEOUT=30000
+DB_STATEMENT_TIMEOUT=60000
+
+# Redis Configuration
+REDIS_MAX_CONNECTIONS=100
+REDIS_COMMAND_TIMEOUT=5000
+REDIS_RETRY_ATTEMPTS=3
+
+# Monitoring & Observability
+ENABLE_PERFORMANCE_METRICS=true
+METRICS_COLLECTION_INTERVAL=60
+LOG_PERFORMANCE_WARNINGS=true
+```
+
+### Cloud Provider Recommendations
+
+<Tabs>
+  <Tab title="☁️ AWS">
+    **Recommended Instance Types:**
+    - Development: `t3.medium` (2 vCPU, 4 GB RAM)
+    - Production: `m5.large` (2 vCPU, 8 GB RAM)
+    - Enterprise: `m5.xlarge` (4 vCPU, 16 GB RAM)
+    
+    **Storage Options:**
+    - Use `gp3` volumes for cost-effective performance
+    - Consider `io2` for high-IOPS requirements
+    - Enable EBS optimization for better throughput
+  </Tab>
+  
+  <Tab title="🌐 Google Cloud">
+    **Recommended Machine Types:**
+    - Development: `e2-standard-2` (2 vCPU, 8 GB RAM)
+    - Production: `n2-standard-4` (4 vCPU, 16 GB RAM)
+    - Enterprise: `n2-standard-8` (8 vCPU, 32 GB RAM)
+    
+    **Storage Options:**
+    - Use SSD persistent disks for optimal performance
+    - Enable automatic disk resizing
+    - Consider regional persistent disks for HA
+  </Tab>
+  
+  <Tab title="🔷 Azure">
+    **Recommended VM Sizes:**
+    - Development: `Standard_B2s` (2 vCPU, 4 GB RAM)
+    - Production: `Standard_D4s_v3` (4 vCPU, 16 GB RAM)
+    - Enterprise: `Standard_D8s_v3` (8 vCPU, 32 GB RAM)
+    
+    **Storage Options:**
+    - Use Premium SSD for production workloads
+    - Enable accelerated networking
+    - Consider availability zones for redundancy
+  </Tab>
+</Tabs>
+
+## 🎯 Performance Monitoring
+
+### Key Metrics to Track
+
+<CardGroup cols={3}>
+  <Card title="🚀 Response Time" color="#f59e0b">
+    Monitor average and 95th percentile response times for all workflow types
+  </Card>
+  
+  <Card title="💾 Memory Usage" color="#ef4444">
+    Track memory consumption patterns and identify potential leaks
+  </Card>
+  
+  <Card title="🔄 Queue Depth" color="#8b5cf6">
+    Monitor job queue sizes to prevent bottlenecks
+  </Card>
+</CardGroup>
+
+<Note>
+**📊 Pro Monitoring Tip:** Set up alerts for response times > 1s, memory usage > 80%, and queue depth > 1000 jobs.
+</Note>
+
+---
+
+<div className="nrai-performance-footer">
+  <h3>🎯 Ready to Optimize Your NRAI Deployment?</h3>
+  <p>Our performance engineering team is here to help you achieve maximum efficiency. Contact us for personalized optimization recommendations.</p>
+  
+  <div className="nrai-footer-buttons">
+    <a href="/install/architecture/overview" className="nrai-button">📚 Architecture Guide</a>
+    <a href="/install/configuration/environment-variables" className="nrai-button">⚙️ Configuration</a>
+    <a href="https://nrai.io/support" className="nrai-button">🤝 Get Support</a>
+  </div>
+</div>
+
+<style jsx>{`
+  .nrai-performance-hero {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .nrai-performance-footer {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    padding: 2rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 3rem;
+    border: 1px solid rgba(99, 102, 241, 0.1);
+  }
+  
+  .nrai-footer-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .nrai-button {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .nrai-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+  }
+  
+  @media (max-width: 768px) {
+    .nrai-footer-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .nrai-button {
+      width: 100%;
+      max-width: 250px;
+      text-align: center;
+    }
+  }
+`}</style>

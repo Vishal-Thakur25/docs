@@ -1,0 +1,33 @@
+---
+title: 'Build Custom Addons'
+icon: 'box'
+---
+
+You can use the CLI to build custom addons for the platform. This process compiles the addons and exports them as a `.tgz` packed archive.
+
+### How It Works
+
+The CLI scans the `packages/addons/` directory for the specified addon. It checks the **name** in the `package.json` file. If the addon is found, it builds and packages it into a `.tgz` archive.
+
+### Usage
+
+To build a addon, follow these steps:
+
+1. Ensure you have the CLI installed by cloning the repository.
+2. Run the following command:
+
+```bash
+npm run build-addon
+```
+
+You will be prompted to enter the name of the addon you want to build. For example:
+
+```bash
+? Enter the addon folder name : google-drive
+```
+
+The CLI will build the addon and you will be given the path to the archive. For example:
+
+```bash
+Addon 'google-drive' built and packed successfully at dist/packages/addons/community/google-drive
+```

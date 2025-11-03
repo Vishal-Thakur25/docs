@@ -1,0 +1,107 @@
+<svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="ai-bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#1e293b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f172a;stop-opacity:1" />
+    </radialGradient>
+    <linearGradient id="brain-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:1" />
+    </linearGradient>
+    <filter id="ai-glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="600" height="400" fill="url(#ai-bg)"/>
+  
+  <!-- Central AI Brain -->
+  <circle cx="300" cy="200" r="60" fill="url(#brain-gradient)" filter="url(#ai-glow)">
+    <animate attributeName="r" values="60;65;60" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Brain Icon -->
+  <text x="300" y="210" font-family="Arial, sans-serif" font-size="40" fill="white" text-anchor="middle">🧠</text>
+  
+  <!-- AI Feature Nodes -->
+  <!-- Natural Language Processing -->
+  <circle cx="150" cy="100" r="25" fill="#10b981" opacity="0.8">
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  <text x="150" y="107" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle">📝</text>
+  <text x="150" y="75" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#10b981" text-anchor="middle">NLP</text>
+  
+  <!-- Machine Learning -->
+  <circle cx="450" cy="100" r="25" fill="#f59e0b" opacity="0.8">
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <text x="450" y="107" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle">🤖</text>
+  <text x="450" y="75" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#f59e0b" text-anchor="middle">ML</text>
+  
+  <!-- Computer Vision -->
+  <circle cx="100" cy="300" r="25" fill="#ef4444" opacity="0.8">
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="2.8s" repeatCount="indefinite"/>
+  </circle>
+  <text x="100" y="307" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle">👁️</text>
+  <text x="100" y="275" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ef4444" text-anchor="middle">Vision</text>
+  
+  <!-- Predictive Analytics -->
+  <circle cx="500" cy="300" r="25" fill="#8b5cf6" opacity="0.8">
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="3.2s" repeatCount="indefinite"/>
+  </circle>
+  <text x="500" y="307" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle">📊</text>
+  <text x="500" y="275" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#8b5cf6" text-anchor="middle">Analytics</text>
+  
+  <!-- Animated Connections -->
+  <line x1="175" y1="125" x2="240" y2="175" stroke="#10b981" stroke-width="2" opacity="0.6">
+    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite"/>
+  </line>
+  
+  <line x1="425" y1="125" x2="360" y2="175" stroke="#f59e0b" stroke-width="2" opacity="0.6">
+    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2.2s" repeatCount="indefinite"/>
+  </line>
+  
+  <line x1="125" y1="275" x2="240" y2="225" stroke="#ef4444" stroke-width="2" opacity="0.6">
+    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2.4s" repeatCount="indefinite"/>
+  </line>
+  
+  <line x1="475" y1="275" x2="360" y2="225" stroke="#8b5cf6" stroke-width="2" opacity="0.6">
+    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2.6s" repeatCount="indefinite"/>
+  </line>
+  
+  <!-- Data Pulses -->
+  <circle cx="175" cy="125" r="3" fill="#10b981">
+    <animate attributeName="cx" values="175;240" dur="1.5s" repeatCount="indefinite"/>
+    <animate attributeName="cy" values="125;175" dur="1.5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="1;0" dur="1.5s" repeatCount="indefinite"/>
+  </circle>
+  
+  <circle cx="425" cy="125" r="3" fill="#f59e0b">
+    <animate attributeName="cx" values="425;360" dur="1.8s" repeatCount="indefinite"/>
+    <animate attributeName="cy" values="125;175" dur="1.8s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="1;0" dur="1.8s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Title -->
+  <text x="300" y="30" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle">
+    NRAI AI Capabilities
+  </text>
+  
+  <!-- Feature Labels -->
+  <text x="50" y="380" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">
+    ✨ Intelligent workflow suggestions
+  </text>
+  <text x="250" y="380" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">
+    🔄 Self-optimizing processes
+  </text>
+  <text x="450" y="380" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">
+    🛡️ Anomaly detection
+  </text>
+</svg>

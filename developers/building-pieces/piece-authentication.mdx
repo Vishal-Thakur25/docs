@@ -1,0 +1,38 @@
+---
+title: 'Add Addon Authentication'
+icon: 'circle-4'
+description: ''
+---
+
+
+### Addon Authentication
+
+NRAI supports multiple forms of authentication, you can check those forms [here](../addon-reference/authentication)
+
+Now, let's establish authentication for this addon, which necessitates the inclusion of an API Key in the headers.
+
+Modify `src/index.ts` file to add authentication,
+
+```ts
+import { AddonAuth, createAddon } from '@NRAI/addons-framework';
+
+export const gelatoAuth = AddonAuth.SecretText({
+  displayName: 'API Key',
+  required: true,
+  description: 'Please use **test-key** as value for API Key',
+});
+
+export const gelato = createAddon({
+  displayName: 'Gelato',
+  logoUrl: 'https://cdn.NRAI.com/addons/gelato.png',
+  auth: gelatoAuth,
+  authors: [],
+  actions: [],
+  triggers: [],
+});
+```
+
+<Note>
+  Use the value **test-key** as the API key when testing actions or triggers for
+  Gelato.
+</Note>
